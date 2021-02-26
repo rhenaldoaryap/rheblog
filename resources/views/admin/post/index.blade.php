@@ -45,9 +45,9 @@
                             </thead>
                             <tbody>
                                 @if($posts->count())
-                                @foreach($posts as $post)
+                                @foreach($posts as $key => $post)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $posts->firstItem() + $key }}</td>
                                     <td>
                                         <div style="max-height: 100px; max-width: 100px; overflow: hidden;">
                                             <img src="{{ asset($post->image) }}" class="img-fluid img-rounded" alt="pict">
@@ -84,7 +84,16 @@
                         </table>
                     </div>
                     <div class="card-footer d-flex justify-content-center">
-                        {{ $posts->links('pagination::bootstrap-4') }}
+                        showing
+                        {{ $posts->firstItem() }}
+                        to
+                        {{ $posts->lastItem() }}
+                        of
+                        {{ $posts->total() }}
+                        entries
+                    </div>
+                    <div class="card-footer d-flex justify-content-center">
+                        {{ $posts->links() }}
                     </div>
                 </div>
             </div>

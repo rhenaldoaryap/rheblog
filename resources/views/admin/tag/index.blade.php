@@ -41,7 +41,7 @@
                             </thead>
                             <tbody>
                                 @if($tags->count() > 0)
-                                @foreach($tags as $tag)
+                                @foreach($tags as $key => $tag)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $tag->name }}</td>
@@ -67,7 +67,16 @@
                         </table>
                     </div>
                     <div class="card-footer d-flex justify-content-center">
-                        {{ $tags->links('pagination::bootstrap-4') }}
+                        showing
+                        {{ $tags->firstItem() }}
+                        to
+                        {{ $tags->lastItem() }}
+                        of
+                        {{ $tags->total() }}
+                        entries
+                    </div>
+                    <div class="card-footer d-flex justify-content-center">
+                        {{ $tags->links() }}
                     </div>
                 </div>
             </div>

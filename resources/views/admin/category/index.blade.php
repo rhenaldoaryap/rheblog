@@ -67,7 +67,16 @@
                         </table>
                     </div>
                     <div class="card-footer d-flex justify-content-center">
-                        {{ $categories->links('pagination::bootstrap-4') }}
+                        showing
+                        {{ $categories->firstItem() }}
+                        to
+                        {{ $categories->lastItem() }}
+                        of
+                        {{ $categories->total() }}
+                        entries
+                    </div>
+                    <div class="card-footer d-flex-justify-content-center">
+                        {{ $categories->links() }}
                     </div>
                 </div>
             </div>
