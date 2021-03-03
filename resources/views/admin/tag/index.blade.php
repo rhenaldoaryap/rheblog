@@ -43,7 +43,7 @@
                                 @if($tags->count() > 0)
                                 @foreach($tags as $key => $tag)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $tags->firstItem() + $key }}</td>
                                     <td>{{ $tag->name }}</td>
                                     <td>{{ $tag->slug }}</td>
                                     <td class="d-flex">
